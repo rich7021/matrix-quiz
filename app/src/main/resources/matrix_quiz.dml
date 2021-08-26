@@ -1,0 +1,16 @@
+insert into user (id, active, name, create_time, delete_time) values ("c7641e75-04a8-11ec-9bf7-0242ac110002", 1, 'richard', curdate(),curdate());
+
+insert into quiz (id, user_id, topic, quiz) values ("c7641e75-04a8-11ec-9bf7-0242ac110003", "c7641e75-04a8-11ec-9bf7-0242ac110002", "生活小常識", "請問時鐘上有幾個數字?");
+insert into `quiz_option` (id, quiz_id, `option`, is_answer) values ("c7641e75-04a8-11ec-9bf7-0242ac110033", "c7641e75-04a8-11ec-9bf7-0242ac110003", "10", 0);
+insert into `quiz_option` (id, quiz_id, `option`, is_answer) values ("c7641e75-04a8-11ec-9bf7-0242ac110034", "c7641e75-04a8-11ec-9bf7-0242ac110003", "11", 0);
+insert into `quiz_option` (id, quiz_id, `option`, is_answer) values ("c7641e75-04a8-11ec-9bf7-0242ac110035", "c7641e75-04a8-11ec-9bf7-0242ac110003", "12", 1);
+
+insert into quiz (id, user_id, topic, quiz) values ("c7641e75-04a8-11ec-9bf7-0242ac110004", "c7641e75-04a8-11ec-9bf7-0242ac110002", "物理知識", "請問水的沸點是幾度?");
+insert into `quiz_option` (id, quiz_id, `option`, is_answer) values ("c7641e75-04a8-11ec-9bf7-0242ac110043", "c7641e75-04a8-11ec-9bf7-0242ac110004", "90", 0);
+insert into `quiz_option` (id, quiz_id, `option`, is_answer) values ("c7641e75-04a8-11ec-9bf7-0242ac110044", "c7641e75-04a8-11ec-9bf7-0242ac110004", "100", 0);
+insert into `quiz_option` (id, quiz_id, `option`, is_answer) values ("c7641e75-04a8-11ec-9bf7-0242ac110045", "c7641e75-04a8-11ec-9bf7-0242ac110004", "95", 1);
+
+insert into quiz (id, user_id, topic, quiz) values ("c7641e75-04a8-11ec-9bf7-0242ac110005", "c7641e75-04a8-11ec-9bf7-0242ac110002", "捷運達人", "請問松山新店線的顏色?");
+insert into `quiz_option` (id, quiz_id, `option`, is_answer) values ("c7641e75-04a8-11ec-9bf7-0242ac110053", "c7641e75-04a8-11ec-9bf7-0242ac110005", "紅", 0);
+insert into `quiz_option` (id, quiz_id, `option`, is_answer) values ("c7641e75-04a8-11ec-9bf7-0242ac110054", "c7641e75-04a8-11ec-9bf7-0242ac110005", "藍", 0);
+insert into `quiz_option` (id, quiz_id, `option`, is_answer) values ("c7641e75-04a8-11ec-9bf7-0242ac110055", "c7641e75-04a8-11ec-9bf7-0242ac110005", "綠", 1);
