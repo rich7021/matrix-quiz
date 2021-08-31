@@ -50,7 +50,7 @@ public class QuizInfo {
     public static OptionInfo OptionToOptionInfo(QuizOption option) {
         OptionInfo info = new OptionInfo();
         info.setId(option.getId());
-        info.setOption(option.getOption());
+        info.setOption(option.getOptionName());
         return info;
     }
 

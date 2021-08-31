@@ -1,6 +1,8 @@
-CREATE DATABASE matriz_quiz;
+CREATE DATABASE IF NOT EXISTS matrix_quiz;
 
-CREATE TABLE user (
+USE matrix_quiz;
+
+CREATE TABLE IF NOT EXISTS user (
     `id` CHAR(36) NOT NULL,
     `name` VARCHAR(10) NOT NULL,
     `create_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -9,7 +11,7 @@ CREATE TABLE user (
     PRIMARY KEY (id)
 );
 
-CREATE TABLE quiz (
+CREATE TABLE IF NOT EXISTS quiz (
     `id` CHAR(36) NOT NULL,
     `user_id` char(36) NOT NULL,
     `topic` VARCHAR(30) NOT NULL,
@@ -18,10 +20,10 @@ CREATE TABLE quiz (
     FOREIGN KEY (user_id) REFERENCES user(id)
 );
 
-CREATE TABLE `quiz_option` (
+CREATE TABLE IF NOT EXISTS quiz_option (
     `id` CHAR(36) NOT NULL,
     `quiz_id` CHAR(36) NOT NULL,
-    `option` VARCHAR(50) NOT NULL,
+    `option_name` VARCHAR(50) NOT NULL,
     `is_answer` TINYINT(1) NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (quiz_id) REFERENCES quiz(id)

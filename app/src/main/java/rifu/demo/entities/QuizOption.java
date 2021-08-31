@@ -7,9 +7,10 @@ import javax.persistence.*;
 @Entity
 public class QuizOption {
     @Id
-    @GenericGenerator(name = "uuid", strategy = "uuid4")
+    @GeneratedValue(generator = "uuid2")
+    @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
     private String id;
-    private String option;
+    private String optionName;
     private boolean isAnswer;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "quiz_id", nullable = false)
@@ -23,12 +24,12 @@ public class QuizOption {
         this.id = id;
     }
 
-    public String getOption() {
-        return option;
+    public String getOptionName() {
+        return optionName;
     }
 
-    public void setOption(String option) {
-        this.option = option;
+    public void setOptionName(String optionName) {
+        this.optionName = optionName;
     }
 
     public boolean isAnswer() {
