@@ -1,7 +1,7 @@
 USE matrix_quiz;
 
-create user 'rifu'@'%' identified by '1234';
-grant all privileges on *.* to 'rifu'@'%';
+create user '${APP_USER}'@'%' identified by '${APP_PWD}';
+grant all privileges on *.* to '${APP_USER}'@'%';
 
 insert into user (id, active, name, create_time, delete_time) values ("c7641e75-04a8-11ec-9bf7-0242ac110002", 1, 'richard', curdate(),curdate());
 

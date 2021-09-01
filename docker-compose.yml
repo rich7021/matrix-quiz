@@ -15,11 +15,20 @@ services:
       - DB_HOST=localhost
       - APP_USER=${APP_USER}
       - APP_PWD=${APP_PWD}
+    # used for checking app user is added and mysql is ready
+    healthcheck:
+      test: [ "CMD", "sh", "-c", "mysql -p${APP_PWD} -u${APP_USER} -e 'SELECT user from mysql.user' | grep ${APP_USER}"]
+      timeout: 20s
+      retries: 10
 
   app:
     depends_on:
-      - mysql
+      # using healthy for delayed start when app user is added.
+      mysql:
+        condition: service_healthy
     image: matrix_quiz
+    volumes:
+      - ./app/src/main/resources/:/app/config/
     build:
       context: .
       args:
@@ -34,3 +43,4 @@ services:
       - "--spring.datasource.username=${APP_USER}"
       - "--spring.datasource.password=${APP_PWD}"
       - "--spring.datasource.url=jdbc:mysql://mysql:3306/matrix_quiz"
+      - "--spring.config.location=file:///app/config/"
